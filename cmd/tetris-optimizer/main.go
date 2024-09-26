@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"tetris-optimizer/internal/parser"
+	"tetris-optimizer/internal/solver"
 )
 
 func main() {
@@ -20,13 +20,16 @@ func main() {
 		log.Fatalf("Error parsing file: %v", err)
 	}
 
-	// Вывод результата парсинга
-	for i, tetromino := range tetrominoes {
-		fmt.Printf("Tetromino %d:\n", i+1)
-		for _, row := range tetromino.Shape {
-			fmt.Println(string(row[:]))
-		}
-		fmt.Println()
-	}
+	// Вывод результата парсинга (отладка)
+	// for i, tetromino := range tetrominoes {
+	// 	fmt.Printf("Tetromino %d:\n", i+1)
+	// 	for _, row := range tetromino.Shape {
+	// 		fmt.Println(string(row[:]))
+	// 	}
+	// 	fmt.Println()
+	// }
 
+	//
+	board := solver.FindMinimalSquare(tetrominoes)
+	board.Print()
 }
