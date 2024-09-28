@@ -20,6 +20,9 @@ func main() {
 		log.Fatalf("Error parsing file: %v", err)
 	}
 
+	if len(tetrominoes) == 0 {
+		log.Fatalf("No tetrominoes found")
+	}
 	// Вывод результата парсинга (отладка)
 	// for i, tetromino := range tetrominoes {
 	// 	fmt.Printf("Tetromino %d:\n", i+1)
